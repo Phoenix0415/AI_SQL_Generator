@@ -4,12 +4,13 @@ import { useState } from 'react'
 
 function App() {
   const [queryDescription,setQueryDescription] = useState('')
+  const [sqlQuery, setSqlQuery] = useState("");
 
   const onSubmit = async (e) => {
     e.preventDefault();
     
-    const sqlQuery = await generateQuery();
-    console.log("returned query: ", sqlQuery);
+    const query = await generateQuery();
+    setSqlQuery(query);
   }
 
   const generateQuery = async () => {
@@ -21,7 +22,7 @@ function App() {
       body: JSON.stringify({queryDescription: queryDescription}),
     });
     const data = await response.json();
-    return data.response.trim();
+    return data.response.trim().replace(/\s+/g, ' '); // This regex replaces all whitespace sequences with a single space
   };
 
   return (
@@ -38,7 +39,7 @@ function App() {
         />
         <input type="submit" value="Generate query" />
       </form>
-
+      <pre>{sqlQuery}</pre>
     </main>
   )
 }
