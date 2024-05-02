@@ -29,13 +29,7 @@ To install the dependencies for the client, navigate to the client folder and ru
 npm install
 ```
 
-To install the dependencies for the server, navigate to the server folder and run the following command:
-
-```
-npm install
-```
-
-## Running the Client
+### Running the Client
 
 To run the client, navigate to the client folder and run the following command:
 
@@ -45,7 +39,7 @@ npm run dev
 
 The client will be available at http://localhost:5173/.
 
-## Running the Server
+### Running the Server
 
 To run the server, navigate to the server folder and run the following command:
 
