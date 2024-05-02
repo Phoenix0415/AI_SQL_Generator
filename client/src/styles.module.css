@@ -65,3 +65,23 @@
     margin-top: 40px;
     width: 69ch;
   }
+
+  /* Add new styles* below */
+
+  .sqlContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center horizontally */
+    gap: 10px;
+    margin-top: 20px;
+    padding: 0 20px; /* Add padding if needed */
+  }
+  
+  .copyButton {
+    width: 40px;
+    height: 40px;
+    background: no-repeat center/70% url('./assets/copy_icon.png'); /* Adjust icon size and placement */
+    border: none;
+    cursor: pointer;
+  }
+  

@@ -1,5 +1,6 @@
 import styles from './styles.module.css'
 import sqlLogo from './assets/sql_logo.png'
+import copyIcon from './assets/copy_icon.png'
 import { useState } from 'react'
 
 function App() {
@@ -25,6 +26,12 @@ function App() {
     return data.response.trim().replace(/\s+/g, ' '); // This regex replaces all whitespace sequences with a single space
   };
 
+  // Copy the generated SQL query to the clipboard
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(sqlQuery);
+    alert('Copied to clipboard!');
+  };
+
   return (
     <main className={styles.main}>
       <img  src={sqlLogo} alt="" className={styles.icon}/>
@@ -38,8 +45,12 @@ function App() {
           onChange={(e)=> setQueryDescription(e.target.value)}
         />
         <input type="submit" value="Generate query" />
-      </form>
-      <pre>{sqlQuery}</pre>
+      </form>  
+      <div className={styles.sqlContainer}>
+        <pre className={styles.sqlOutput}>{sqlQuery}</pre>
+        <button onClick={copyToClipboard} className={styles.copyButton}>
+        </button>
+      </div>
     </main>
   )
 }
